@@ -131,4 +131,5 @@ dmypy.json
 .idea/
 ~*
 COVID-19-CT-Seg/
+*.ipynb
 
