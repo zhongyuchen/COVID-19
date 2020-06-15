@@ -133,4 +133,5 @@ dmypy.json
 COVID-19-CT-Seg/
 covid-chestxray-dataset/
 *.ipynb
+data/
 
