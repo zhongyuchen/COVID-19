@@ -9,6 +9,7 @@ from dataset import Dataset
 import os
 from tensorboardx import SummaryWriter
 import pickle
+import torch.utils.data
 
 
 def train(model, device, train_loader, test_loader, optimizer, epoch, metric, log_interval, save_path, log_path):
