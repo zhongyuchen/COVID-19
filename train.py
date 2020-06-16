@@ -38,7 +38,7 @@ def train(model, device, train_loader, test_loader, optimizer, epoch, metric, lo
         acc = test(model, device, test_loader, metric)
         # print('before acc', acc)
         # acc_list.append(acc)
-        writer.add_scalar('acc', acc, e)
+        writer.add_scalar('accuracy', acc, e)
         # print('after acc', acc)
         if acc > acc_best:
             ckpt = {
