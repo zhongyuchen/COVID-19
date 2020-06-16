@@ -96,7 +96,7 @@ def main():
     seed = 11
     log_interval = 100
     save_path = './model/{}.pt'.format(model_choice)
-    log_path = '.log/{}'.format(model_choice)
+    log_path = './log/{}'.format(model_choice)
     os.makedirs(log_path, exist_ok=True)
 
     # setting
