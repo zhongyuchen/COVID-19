@@ -7,7 +7,7 @@ from model import CNN, VGG
 import configparser
 from dataset import Dataset
 import os
-from torch.utils.tensorboard import SummaryWriter
+from tensorboardx import SummaryWriter
 import pickle
 
 
