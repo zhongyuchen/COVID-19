@@ -104,8 +104,8 @@ def main():
 
     # data loader
     data_path = './data'
-    train_data = pickle.load(open(os.path.join(data_path, 'train.pkl')))
-    dev_data = pickle.load(open(os.path.join(data_path, 'dev.pkl')))
+    train_data = pickle.load(open(os.path.join(data_path, 'train.pkl'), 'rb'))
+    dev_data = pickle.load(open(os.path.join(data_path, 'dev.pkl'), 'rb'))
     print('dataset', len(train_data), len(dev_data))
     kwargs = {'num_workers': 32, 'pin_memory': True}
     train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True, **kwargs)

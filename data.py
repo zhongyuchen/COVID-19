@@ -64,9 +64,9 @@ def get_dataset():
     test = Dataset(test, test_y)
 
     data_path = './data'
-    pickle.dump(train, open(os.path.join(data_path, 'train.pkl'), 'w'))
-    pickle.dump(dev, open(os.path.join(data_path, 'dev.pkl'), 'w'))
-    pickle.dump(test, open(os.path.join(data_path, 'test.pkl'), 'w'))
+    pickle.dump(train, open(os.path.join(data_path, 'train.pkl'), 'wb'))
+    pickle.dump(dev, open(os.path.join(data_path, 'dev.pkl'), 'wb'))
+    pickle.dump(test, open(os.path.join(data_path, 'test.pkl'), 'wb'))
 
 
 if __name__ == '__main__':
