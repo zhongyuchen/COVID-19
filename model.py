@@ -10,7 +10,7 @@ class CNN(nn.Module):
         super(CNN, self).__init__()
         self.conv1 = nn.Conv2d(1, 20, 3, 1)
         self.conv2 = nn.Conv2d(20, 50, 3, 1)
-        self.fc1 = nn.Linear(700, 500)
+        self.fc1 = nn.Linear(1200, 500)
         self.fc2 = nn.Linear(500, num_classes)
 
     def forward(self, x):
@@ -20,7 +20,6 @@ class CNN(nn.Module):
         # print(x)
         # print('dsf')
         x = F.relu(self.conv1(x))
-        # print('dsfdfa')
         # print(x.shape)
         x = F.max_pool2d(x, 2, 2)
         # print(x.shape)
@@ -28,7 +27,7 @@ class CNN(nn.Module):
         # print(x.shape)
         x = F.max_pool2d(x, 2, 2)
         # print(x.shape)
-        x = x.view(-1, 700)
+        x = x.view(-1, 1200)
         # print(x.shape)
         x = F.relu(self.fc1(x))
         # print(x.shape)
