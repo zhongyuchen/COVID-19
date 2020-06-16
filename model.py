@@ -10,7 +10,7 @@ class CNN(nn.Module):
         super(CNN, self).__init__()
         self.conv1 = nn.Conv2d(1, 20, 3, 1)
         self.conv2 = nn.Conv2d(20, 50, 3, 1)
-        self.fc1 = nn.Linear(1200, 500)
+        self.fc1 = nn.Linear(45000, 500)
         self.fc2 = nn.Linear(500, num_classes)
 
     def forward(self, x):
