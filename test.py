@@ -22,11 +22,11 @@ if __name__ == '__main__':
     device = torch.device(0)
     # data loader
     data_path = './data'
-    train_data = pickle.load(open(os.path.join(data_path, 'train.pkl'), 'rb'))
-    dev_data = pickle.load(open(os.path.join(data_path, 'dev.pkl'), 'rb'))
-    print('dataset', len(train_data), len(dev_data))
+    test_batch_size = 16
+    test_data = pickle.load(open(os.path.join(data_path, 'vgg_test.pkl'), 'rb'))
+    print('dataset', len(test_data))
     kwargs = {'num_workers': 32, 'pin_memory': True}
-    test_loader = torch.utils.data.DataLoader(dev_data, batch_size=test_batch_size, shuffle=True, **kwargs)
+    test_loader = torch.utils.data.DataLoader(test_data, batch_size=test_batch_size, shuffle=True, **kwargs)
 
     lr = 0.001
     # model setting
@@ -35,6 +35,9 @@ if __name__ == '__main__':
         'vgg': VGG
     }
     model = Model[model_choice]().to(device)
+    ckpt = torch.load('./model/vgg.pt')
+    model.load_state_dict(ckpt['model_state_dict'])
+    model.eval()
     optimizer = optim.Adam(model.parameters(), lr=lr)
     metric = nn.CrossEntropyLoss().to(device)
     acc = test(model, device, test_loader, metric)
