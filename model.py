@@ -27,7 +27,7 @@ class CNN(nn.Module):
         # print(x.shape)
         x = F.max_pool2d(x, 2, 2)
         # print(x.shape)
-        x = x.view(-1, 1200)
+        x = x.view(-1, 45000)
         # print(x.shape)
         x = F.relu(self.fc1(x))
         # print(x.shape)
