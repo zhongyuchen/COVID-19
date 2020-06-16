@@ -98,6 +98,7 @@ def main():
     save_path = './model/{}.pt'.format(model_choice)
     log_path = './log/{}'.format(model_choice)
     os.makedirs(log_path, exist_ok=True)
+    os.makedirs(save_path, exist_ok=True)
 
     # setting
     torch.manual_seed(seed)
