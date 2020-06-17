@@ -23,7 +23,7 @@ if __name__ == '__main__':
     # data loader
     data_path = './data'
     test_batch_size = 16
-    test_data = pickle.load(open(os.path.join(data_path, 'vgg_test.pkl'), 'rb'))
+    test_data = pickle.load(open(os.path.join(data_path, 'o_test.pkl'), 'rb'))
     print('dataset', len(test_data))
     kwargs = {'num_workers': 32, 'pin_memory': True}
     test_loader = torch.utils.data.DataLoader(test_data, batch_size=test_batch_size, shuffle=True, **kwargs)
@@ -35,7 +35,7 @@ if __name__ == '__main__':
         'vgg': VGG
     }
     model = Model[model_choice]().to(device)
-    ckpt = torch.load('./model/vgg.pt')
+    ckpt = torch.load('./model/o_cnn.pt')
     model.load_state_dict(ckpt['model_state_dict'])
     model.eval()
     optimizer = optim.Adam(model.parameters(), lr=lr)

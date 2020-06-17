@@ -89,16 +89,16 @@ def main():
     model_choice = args.model
 
     # config
-    #batch_size = 64
-    #test_batch_size = 64
-    batch_size = 8
-    test_batch_size = 8
+    batch_size = 64
+    test_batch_size = 64
+    #batch_size = 8
+    #test_batch_size = 8
     epoch = 64
     lr = 0.001
     seed = 11
     log_interval = 100
-    save_path = './model/{}.pt'.format(model_choice)
-    log_path = './log/{}'.format(model_choice)
+    save_path = './model/o_{}.pt'.format(model_choice)
+    log_path = './log/o_{}'.format(model_choice)
     os.makedirs(log_path, exist_ok=True)
 
     # setting
@@ -107,8 +107,8 @@ def main():
 
     # data loader
     data_path = './data'
-    train_data = pickle.load(open(os.path.join(data_path, 'vgg_train.pkl'), 'rb'))
-    dev_data = pickle.load(open(os.path.join(data_path, 'vgg_dev.pkl'), 'rb'))
+    train_data = pickle.load(open(os.path.join(data_path, 'o_train.pkl'), 'rb'))
+    dev_data = pickle.load(open(os.path.join(data_path, 'o_dev.pkl'), 'rb'))
     print('dataset', len(train_data), len(dev_data))
     kwargs = {'num_workers': 32, 'pin_memory': True}
     train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True, **kwargs)
