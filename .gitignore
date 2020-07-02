@@ -127,11 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
 .idea/
-~*
-COVID-19-CT-Seg/
-covid-chestxray-dataset/
-*.ipynb
 data/
 model/
 log/
